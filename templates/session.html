@@ -3,6 +3,7 @@
   <head>
     <title>Shapre Chat Room</title>
   </head>
+  <meta charset="utf-8"/>
   <body>
 
     <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
@@ -39,13 +40,13 @@
           $( 'input.message' ).val( '' ).focus()
         } )
       } )
-      socket.on('pgevent', function(msg)){
+      socket.on('pgevent', function (msg){
         socket.emit( 'msgevent', {
             user_name : '',
             user_color : '#000',
-            message : '* Moving to page '+msg.pagenum
+            message : '<i>* Moving to page '+msg.pagenum+'</i>'
           } )
-      }
+      })
       socket.on( 'evresponse', function( msg ) {
         console.log( msg )
         if( typeof msg.user_name !== 'undefined' ) {
