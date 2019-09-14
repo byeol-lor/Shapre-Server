@@ -14,9 +14,9 @@ def sessions():
     return render_template('session.html')
 
 @app.route('/nex/<int:pagenum>')
-def page(pagenum):
-	socketio.emit('pgevent',{page: pagenum})
-	return 'asdf'
+def sendpage(pagenum, methods=['GET','POST']):
+	socketio.emit('pgevent',{'page': pagenum})
+	return pagenum
 
 def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
